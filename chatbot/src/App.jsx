@@ -1,63 +1,22 @@
-import React from 'react'
-import Dashboard from './Components/Dashboard'
-import { BrowserRouter, Route,Routes } from 'react-router-dom'
-import Register from './Components/Register'
-import Login from './Components/Login'
-import Home from './Components/Home'
+import { useState } from "react";
+import UploadForm from "./Components/UploadForm";
+import ResultViewer from "./Components/ResultViewer";
 
-const App = () => {
+function App() {
+  const [result, setResult] = useState(null);
+
   return (
-    <div>
-     <Routes>
-     <Route path='' element={<Dashboard/>}/>
-     <Route path='register' element={<Register/>}/>
-     <Route path='login' element={<Login/>}/>
-     <Route path='home' element={<Home/>}/>
-     
-
-     </Routes>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+    <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-3xl space-y-6">
+        <h1 className="text-2xl font-bold text-gray-800">🔐 Code Vulnerability Scanner</h1>
+        <UploadForm onResult={setResult}/>
+        <ResultViewer result={result} />
     </div>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
 
-
-// import React from 'react';
-// import Dashboard from './Components/Dashboard';
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-// const App = () => {
-//   return (
-//         <Router>
-//           <Routes>
-//           <Route path='/' element={<Dashboard />} />
-//         </Routes>
-
-//         </Router>
-        
-     
-//   );
-// };
-
-// export default App;
-
-
-
-// import React from 'react'
-// import Register from './Components/Register'
-// import Login from './Components/Login'
-// import Dashboard from './Components/Dashboard'
-
-// const App = () => {
-//   return (
-//     <div>
-//     <Dashboard/>
-      
-//     </div>
-//   )
-// }
-
-// export default App
 
 
